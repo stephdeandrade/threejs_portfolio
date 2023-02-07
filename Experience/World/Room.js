@@ -27,6 +27,8 @@ export default class Room {
            child.castShadow = true;
            child.receiveShadow = true; 
 
+            console.log(child);
+
            if(child instanceof THREE.Group) {
                 child.children.forEach((groupchild)=> {
                  groupchild.castShadow = true;
@@ -34,16 +36,16 @@ export default class Room {
                 })
            }
 
-           if(child.name ==="Object_188") {
-            child.material = new THREE.MeshBasicMaterial({
+           if(child.name ==="Computer") {
+            child.children[0].material = new THREE.MeshBasicMaterial({
                 map: this.resources.items.Object_188,
             });
             // child.rotation.x = Math.PI / 2;
            }
         });
 
-        const width = .5;
-        const height = .5;
+        const width = .4;
+        const height = .3;
         const intensity = 1;
         const rectLight = new THREE.RectAreaLight(
             0xffffff,
@@ -51,11 +53,11 @@ export default class Room {
             width,
             height,
         );
-        rectLight.position.set(8.54043  , 4, -1.8455);
+        rectLight.position.set(-5.5, 4.1293, -3);
 
         // rectLight.rotation.z = 2 * Math.PI / 3;
         // rectLight.rotation.x = 3 * -Math.PI / 2;
-        rectLight.rotation.y = 2 * Math.PI / 2.5;
+        rectLight.rotation.y = -Math.PI / 1.3 ;
         this.actualRoom.add(rectLight);
 
             // const rectLightHelper = new RectAreaLightHelper(rectLight);
@@ -67,7 +69,6 @@ export default class Room {
 
     onMouseMove(){
         window.addEventListener("mousemove", (e) => {
-            console.log(e);
             this.rotation = 
                 ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
                 this.lerp.target = this.rotation * 0.1;

@@ -2,7 +2,7 @@ export default [
     {
         name: "room",
         type: "glbModel",
-        path: "/models/Final_inKch.glb",
+        path: "/models/Final_version2.glb",
     },
 
     {
