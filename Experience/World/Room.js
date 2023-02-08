@@ -42,6 +42,22 @@ export default class Room {
             });
             // child.rotation.x = Math.PI / 2;
            }
+
+            if (child.name === "Minifloor" ){
+             child.position.x = 4;
+             child.position.z = -3;
+            }
+
+            if (child.name === "Mailbox" ||
+            child.name === "Lamp" || 
+            child.name === "Flower1" || 
+            child.name === "Flower2" || 
+            child.name === "Dirt" || 
+            child.name === "Floor_first" || 
+            child.name === "Floor_second" || 
+            child.name === "Floor_third" ){
+             child.scale.set(0, 0, 0,)
+            }
         });
 
         const width = .4;

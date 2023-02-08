@@ -141,7 +141,7 @@ svg{
   padding: 1000px 4%;
   margin: 0;
   background-color: var(--color-background);
-overflow: hidden;
+  overflow: hidden;
 }
 
 .left{
