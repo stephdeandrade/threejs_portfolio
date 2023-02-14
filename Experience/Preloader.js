@@ -92,7 +92,7 @@ export default class Preloader extends EventEmitter {
                         z: -0.248682,
                         x: 0.459701,
                     },"same"
-                    ).set(this.roomChildren.body.scale, {
+                    ).to(this.roomChildren.house.scale, {
                         x: 1,
                         y: 1,
                         z: 1,
@@ -100,7 +100,46 @@ export default class Preloader extends EventEmitter {
                         x: 0,
                         y: 0,
                         z: 0,
-                    });
+                    }).to(this.roomChildren.clock.scale, {
+                        x: 0.82,
+                        y: 0.82,
+                        z: 0.82,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }).to(this.roomChildren.floor_items004.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }).to(this.roomChildren.desk001.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }) .to(this.roomChildren.desk_object.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }).to(this.roomChildren.computer.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }).to(this.roomChildren.chair.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        ease: "back.out(2.2)",
+                        duration: 0.5,
+                    }).to(this.roomChildren.chair.rotation, {
+                        ease: "power2.out",
+                        duration: 1,
+                    })
             }else{
                 this.secondTimeline
                     .to(this.room.position,{
