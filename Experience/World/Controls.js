@@ -4,7 +4,7 @@ import GSAP from"gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import ASScroll from "@ashthornton/asscroll";
 
-export default class Conntrols {
+export default class Controls {
     constructor(){
         this.experience = new Experience();
         this.scene = this.experience.scene;
@@ -13,6 +13,7 @@ export default class Conntrols {
         this.time = this.experience.time;
         this.camera = this.experience.camera
         this.room = this.experience.world.room.actualRoom;
+        
         this.room.children.forEach(child=>{
             if(child.type==="RectAreaLight"){
                 this.rectLight = child;
@@ -22,7 +23,10 @@ export default class Conntrols {
         this.circleFirst = this.experience.world.floor.circleFirst
         this.circleSecond = this.experience.world.floor.circleSecond
         this.circleThird = this.experience.world.floor.circleThird
+
         GSAP.registerPlugin(ScrollTrigger);
+
+        document.querySelector(".page").style.overflow = "visible";
 
         this.setSmoothScroll();
         this.setScrollTrigger();
@@ -35,14 +39,14 @@ export default class Conntrols {
             ease: 0.3,
           disableRaf: true,
          });
-      
-      
+
+
         GSAP.ticker.add(asscroll.update);
-      
+
         ScrollTrigger.defaults({
           scroller: asscroll.containerElement });
-      
-      
+
+
         ScrollTrigger.scrollerProxy(asscroll.containerElement, {
           scrollTop(value) {
             if (arguments.length) {
@@ -55,15 +59,15 @@ export default class Conntrols {
             return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
           },
           fixedMarkers: true });
-      
-      
+
+
         asscroll.on("update", ScrollTrigger.update);
         ScrollTrigger.addEventListener("refresh", asscroll.resize);
-      
+
         requestAnimationFrame(() => {
           asscroll.enable({
             newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]") });
-      
+
         });
         return asscroll;
       }
@@ -112,7 +116,7 @@ export default class Conntrols {
                 this.room.position, {
                     x: ()=>{
                         return 1;
-                        
+
                     },
                     z:() =>{
                         return this.sizes.height * 0.0032;
@@ -129,7 +133,7 @@ export default class Conntrols {
                "same"
                );
                this.secondMoveTimeline.to(
-                this.rectLight, 
+                this.rectLight,
                 {
                     width: 0.4 * 5,
                     height: 0.3 * 5,
@@ -148,7 +152,7 @@ export default class Conntrols {
                 }
            });
            this.thirdMoveTimeline.to(this.camera.orthographicCamera.position, {
-                y: -0.5,
+                y: 2.5,
                 x: -2.8,
            });
             },
@@ -156,6 +160,7 @@ export default class Conntrols {
             // Mobile
             "(max-width: 968px)": () => {
                 this.room.scale.set(0.07, 0.07, 0.07);
+                this.room.position.set(0, 0, 0)
                  // First Section
 
                this.firstMoveTimeline = new GSAP.timeline({
@@ -211,7 +216,7 @@ export default class Conntrols {
                 });
                 },
 
-                // all 
+                // all
 
                 all: ()=> {
                     this.sections = document.querySelectorAll(".section")
@@ -304,7 +309,7 @@ export default class Conntrols {
                             y: 3,
                             z: 3,
                         },
-                        "same"    
+                        "same"
                         )
                         .to(this.room.position, {
                             y: 0.7,
@@ -326,7 +331,7 @@ export default class Conntrols {
                         y: 3,
                         z: 3,
                     })
-                   
+
 
                     // Mini Platform
                     this.secondPartTimeline = new GSAP.timeline({
@@ -429,7 +434,7 @@ export default class Conntrols {
                       this.secondPartTimeline.add(this.ninth, "-=0.1");
                 },
 
-        }); 
+        });
     };
 
     resize() {}
