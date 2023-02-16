@@ -4,12 +4,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 html, body{
   font-family: "Montserrat", sans-serif;
 
 }
+
 
  /* body{
   overflow: hidden;
@@ -61,6 +63,17 @@ svg{
 
 }
 
+
+.div{
+  color: var(--color-text);
+  font-size: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 999999999999999999999;
+}
 .experience-canvas{
   width: 100%;
   height: 100%;
@@ -106,6 +119,11 @@ display: none;
 }
 .circle:nth-child(3){
   animation-delay: 0.2s;
+}
+
+.a-text{
+color: var(--color-pink);
+text-decoration: underline;
 }
 
 @keyframes load {
