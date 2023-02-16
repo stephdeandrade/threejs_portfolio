@@ -8,6 +8,6 @@ export default [
     {
         name: "Object_188",
         type: "videoTexture",
-        path: "/textures/kda.mp4",
+        path: "/textures/video.mp4",
     },
 ];
